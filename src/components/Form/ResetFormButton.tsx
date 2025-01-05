@@ -8,7 +8,7 @@ export const ResetFormButton: React.FC<ResetFormButtonProps> = ({
   onClick,
 }) => {
   return (
-    <div>
+    <div className="w-fit mx-auto">
       <motion.button
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.9, type: "spring", stiffness: 100 }}

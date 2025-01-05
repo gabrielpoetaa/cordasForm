@@ -64,8 +64,8 @@ export default function BasicDatePicker({ name, label }: BasicDatePickerProps) {
                 // Passar o valor como um objeto dayjs, sem formatar para string
                 field.onChange(date ? date.format("YYYY-MM-DD") : null); // Enviar para o React Hook Form no formato ISO (YYYY-MM-DD)
 
-                console.log("Valor do DatePicker:", date);
-                console.log("Tipo do valor:", typeof date);
+                // console.log("Valor do DatePicker:", date);
+                // console.log("Tipo do valor:", typeof date);
               }}
             />
           </DemoContainer>

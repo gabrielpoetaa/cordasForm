@@ -15,7 +15,7 @@ import { CircularProgress } from "@mui/material";
 import { ResetFormButton } from "../components/Form/ResetFormButton";
 
 const date = dayjs();
-console.log(date instanceof dayjs); // true
+// console.log(date instanceof dayjs); // true
 
 const courseSchema = z.object({
   Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
@@ -24,35 +24,35 @@ const courseSchema = z.object({
 
 const schema = z
   .object({
-    student_name: z
-      .string({ message: "Por favor, preencha o campo." })
-      .min(1, "O nome deve conter ao menos 1 caractere.")
-      .max(50, "O máximo de caracteres é 50, por favor corrigir"),
-    Date_of_birth: z.string(),
-    CPF: z
-      .string({ message: "Este campo deve conter digitos." })
-      .min(11, "O CPF deve conter 11 digitos"),
-    Email: z
-      .string({ message: "Por favor, preencha o campo." })
-      .min(1, { message: "Por favor, preencha o campo." })
-      .email("Esse não é um endereço de e-mail válido"),
+    // student_name: z
+    //   .string({ message: "Por favor, preencha o campo." })
+    //   .min(1, "O nome deve conter ao menos 1 caractere.")
+    //   .max(50, "O máximo de caracteres é 50, por favor corrigir"),
+    // Date_of_birth: z.string(),
+    // CPF: z
+    //   .string({ message: "Este campo deve conter digitos." })
+    //   .min(11, "O CPF deve conter 11 digitos"),
+    // Email: z
+    //   .string({ message: "Por favor, preencha o campo." })
+    //   .min(1, { message: "Por favor, preencha o campo." })
+    //   .email("Esse não é um endereço de e-mail válido"),
     // street: z.string().min(1),
     // streetNumber: z.string().min(1),
     // city: z.string().min(1),
     // mobileNumber: z
     //   .string({ message: "Por favor, preencha o campo." })
     //   .min(10, "O celular deve conter ao menos 10 dígitos"),
-    Previous_knowledge: z.boolean(),
-    Participate_projects: z.boolean(),
-    Music_Preferences: z
-      .array(z.string())
-      .min(1, "Por favor, selecione pelo menos uma preferência musical"),
-    courses: z
-      .array(courseSchema) // Validando o array de objetos `course` e `teacher`
-      .min(1, "Por favor, escolha pelo menos um curso."),
-    How_did_you_find_us: z
-      .array(z.string())
-      .min(1, "Por favor, selecione pelo menos uma opção"),
+    // Previous_knowledge: z.boolean(),
+    // Participate_projects: z.boolean(),
+    // Music_Preferences: z
+    //   .array(z.string())
+    //   .min(1, "Por favor, selecione pelo menos uma preferência musical"),
+    // courses: z
+    //   .array(courseSchema) // Validando o array de objetos `course` e `teacher`
+    //   .min(1, "Por favor, escolha pelo menos um curso."),
+    // How_did_you_find_us: z
+    //   .array(z.string())
+    //   .min(1, "Por favor, selecione pelo menos uma opção"),
   })
   .required();
 
@@ -164,10 +164,10 @@ export function Cadastrar() {
     }
   };
 
-  console.log("Valores do formulário:", methods.getValues());
+  // console.log("Valores do formulário:", methods.getValues());
 
   // Renderiza a mensagem de sucesso após 2 segundos
-  if (showCircularProgress && methods.formState.isSubmitSuccessful) {
+  if (methods.formState.isSubmitSuccessful) {
     return (
       <Box>
         <SubmitMessage />
@@ -182,7 +182,7 @@ export function Cadastrar() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form onSubmit={methods.handleSubmit((data) => console.log(data))}>
         <Steps items={steps} />
       </form>
     </FormProvider>

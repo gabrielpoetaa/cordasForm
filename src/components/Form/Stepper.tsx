@@ -32,7 +32,7 @@ export function Steps({ items }: StepProps) {
 
   // Verifica se está em uma tela de tamanho mobile
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 'sm' é o breakpoint para telas pequenas (mobile)
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' é o breakpoint para telas pequenas (mobile)
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -44,15 +44,17 @@ export function Steps({ items }: StepProps) {
                 "& .MuiStepLabel-root .Mui-completed": {
                   color: "#ba8638", // Cor do círculo (COMPLETO)
                 },
-                "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel": {
-                  color: "#a06a2e", // Cor do texto do label (COMPLETO)
-                },
+                "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel":
+                  {
+                    color: "#a06a2e", // Cor do texto do label (COMPLETO)
+                  },
                 "& .MuiStepLabel-root .Mui-active": {
                   color: "#ba8638", // Cor do círculo (ATIVO)
                 },
-                "& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel": {
-                  color: "#ba8638", // Cor do texto do label (ATIVO)
-                },
+                "& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel":
+                  {
+                    color: "#ba8638", // Cor do texto do label (ATIVO)
+                  },
                 "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
                   fill: "#f9f6ed", // Cor do número no círculo (ATIVO)
                 },
@@ -68,7 +70,7 @@ export function Steps({ items }: StepProps) {
         })}
       </Stepper>
 
-      <Box minHeight={"50vh"}>{items[activeStep].Component}</Box>
+      <Box minHeight={"45vh"}>{items[activeStep].Component}</Box>
 
       <Box
         sx={{
