@@ -4,7 +4,7 @@ import logo from "./assets/logoCordas.png";
 
 function App() {
   return (
-    <div className="space-y-12 flex flex-col">
+    <div className="space-y-8 flex flex-col">
       <div className="md:w-72 w-60 mx-auto">
         <img src={logo} alt="" />
       </div>

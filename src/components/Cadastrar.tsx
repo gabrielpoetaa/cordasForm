@@ -8,51 +8,51 @@ import { MusicPreferences } from "../components/Form/StepsComponents/MusicPrefer
 // import { Address } from "../components/Form/StepsComponents/Address/Address";
 import { ChosenCourse } from "../components/Form/StepsComponents/ChosenCourse/ChosenCourse";
 import { HowDidYouFindUs } from "../components/Form/StepsComponents/HowDidYouFindUs/HowDidYouFindUs";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 import { SubmitMessage } from "../components/Form/SubmitMessage";
-import { useState } from "react";
-import { CircularProgress } from "@mui/material";
+// import { useState } from "react";
+// import { CircularProgress } from "@mui/material";
 import { ResetFormButton } from "../components/Form/ResetFormButton";
 
-const date = dayjs();
-console.log(date instanceof dayjs); // true
+// const date = dayjs();
+// console.log(date instanceof dayjs); // true
 
-const courseSchema = z.object({
-  Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
-  Teacher_name: z.string().min(1, "Por favor, selecione um teacher"), // Validação para o teacher
-});
+// const courseSchema = z.object({
+//   Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
+//   Teacher_name: z.string().min(1, "Por favor, selecione um teacher"), // Validação para o teacher
+// });
 
 const schema = z
   .object({
-    student_name: z
-      .string({ message: "Por favor, preencha o campo." })
-      .min(1, "O nome deve conter ao menos 1 caractere.")
-      .max(50, "O máximo de caracteres é 50, por favor corrigir"),
-    Date_of_birth: z.string(),
-    CPF: z
-      .string({ message: "Este campo deve conter digitos." })
-      .min(11, "O CPF deve conter 11 digitos"),
-    Email: z
-      .string({ message: "Por favor, preencha o campo." })
-      .min(1, { message: "Por favor, preencha o campo." })
-      .email("Esse não é um endereço de e-mail válido"),
+    // student_name: z
+    //   .string({ message: "Por favor, preencha o campo." })
+    //   .min(1, "O nome deve conter ao menos 1 caractere.")
+    //   .max(50, "O máximo de caracteres é 50, por favor corrigir"),
+    // Date_of_birth: z.string(),
+    // CPF: z
+    //   .string({ message: "Este campo deve conter digitos." })
+    //   .min(11, "O CPF deve conter 11 digitos"),
+    // Email: z
+    //   .string({ message: "Por favor, preencha o campo." })
+    //   .min(1, { message: "Por favor, preencha o campo." })
+    //   .email("Esse não é um endereço de e-mail válido"),
     // street: z.string().min(1),
     // streetNumber: z.string().min(1),
     // city: z.string().min(1),
     // mobileNumber: z
     //   .string({ message: "Por favor, preencha o campo." })
     //   .min(10, "O celular deve conter ao menos 10 dígitos"),
-    Previous_knowledge: z.boolean(),
-    Participate_projects: z.boolean(),
-    Music_Preferences: z
-      .array(z.string())
-      .min(1, "Por favor, selecione pelo menos uma preferência musical"),
-    courses: z
-      .array(courseSchema) // Validando o array de objetos `course` e `teacher`
-      .min(1, "Por favor, escolha pelo menos um curso."),
-    How_did_you_find_us: z
-      .array(z.string())
-      .min(1, "Por favor, selecione pelo menos uma opção"),
+    // Previous_knowledge: z.boolean(),
+    // Participate_projects: z.boolean(),
+    // Music_Preferences: z
+    //   .array(z.string())
+    //   .min(1, "Por favor, selecione pelo menos uma preferência musical"),
+    // courses: z
+    //   .array(courseSchema) // Validando o array de objetos `course` e `teacher`
+    //   .min(1, "Por favor, escolha pelo menos um curso."),
+    // How_did_you_find_us: z
+    //   .array(z.string())
+    //   .min(1, "Por favor, selecione pelo menos uma opção"),
   })
   .required();
 
@@ -123,51 +123,51 @@ export function Cadastrar() {
     },
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showCircularProgress, setShowCircularProgress] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [showCircularProgress, setShowCircularProgress] = useState(false);
 
   // Quando o envio do formulário for bem-sucedido
-  const onSubmit = async (data: any) => {
-    setIsSubmitting(true); // Ativa o estado de submissão
+  // const onSubmit = async (data: any) => {
+  //   setIsSubmitting(true); // Ativa o estado de submissão
 
-    try {
-      const response = await fetch("http://localhost:5000/students", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  //   try {
+  //     const response = await fetch("http://localhost:5000/students", {
+  //       method: "POST",
+  //       body: JSON.stringify(data),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
 
-      if (!response.ok) {
-        throw new Error("Erro na requisicao");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("Erro na requisicao");
+  //     }
 
-      setIsSubmitting(false);
-      setShowCircularProgress(true);
-    } catch (error) {
-      console.error("Erro ao enviar dados: ", error);
-      setIsSubmitting(false);
-    }
+  //     setIsSubmitting(false);
+  //     setShowCircularProgress(true);
+  //   } catch (error) {
+  //     console.error("Erro ao enviar dados: ", error);
+  //     setIsSubmitting(false);
+  //   }
 
-    if (isSubmitting) {
-      return (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          minHeight="100vh"
-        >
-          <CircularProgress /> {/* CircularProgress durante a submissão */}
-        </Box>
-      );
-    }
-  };
+  //   if (isSubmitting) {
+  //     return (
+  //       <Box
+  //         display="flex"
+  //         justifyContent="center"
+  //         alignItems="center"
+  //         minHeight="100vh"
+  //       >
+  //         <CircularProgress /> {/* CircularProgress durante a submissão */}
+  //       </Box>
+  //     );
+  //   }
+  // };
 
-  console.log("Valores do formulário:", methods.getValues());
+  // console.log("Valores do formulário:", methods.getValues());
 
   // Renderiza a mensagem de sucesso após 2 segundos
-  if (showCircularProgress && methods.formState.isSubmitSuccessful) {
+  if (methods.formState.isSubmitSuccessful) {
     return (
       <Box>
         <SubmitMessage />
@@ -182,7 +182,7 @@ export function Cadastrar() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form onSubmit={methods.handleSubmit((data) => console.log(data))}>
         <Steps items={steps} />
       </form>
     </FormProvider>
