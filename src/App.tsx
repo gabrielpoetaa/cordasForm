@@ -9,7 +9,7 @@ function App() {
         <img src={logo} alt="" />
       </div>
       <div className="max-w-[1000px] lg:mx-auto md:x-12 mx-auto">
-        <Cadastrar />;
+        <Cadastrar />
       </div>
     </div>
   );
