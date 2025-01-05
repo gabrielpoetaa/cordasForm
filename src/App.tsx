@@ -8,7 +8,7 @@ function App() {
       <div className="md:w-72 w-60 mx-auto">
         <img src={logo} alt="" />
       </div>
-      <div className="xmax-w-[1000px] lg:mx-auto md:x-12 mx-auto">
+      <div className="max-w-[1000px] lg:mx-auto md:x-12 mx-auto">
         <Cadastrar />;
       </div>
     </div>
