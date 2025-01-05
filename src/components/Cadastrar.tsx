@@ -14,13 +14,13 @@ import { useState } from "react";
 import { CircularProgress } from "@mui/material";
 import { ResetFormButton } from "../components/Form/ResetFormButton";
 
-const date = dayjs();
+// const date = dayjs();
 // console.log(date instanceof dayjs); // true
 
-const courseSchema = z.object({
-  Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
-  Teacher_name: z.string().min(1, "Por favor, selecione um teacher"), // Validação para o teacher
-});
+// const courseSchema = z.object({
+//   Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
+//   Teacher_name: z.string().min(1, "Por favor, selecione um teacher"), // Validação para o teacher
+// });
 
 const schema = z
   .object({
@@ -124,45 +124,45 @@ export function Cadastrar() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showCircularProgress, setShowCircularProgress] = useState(false);
+  // const [showCircularProgress, setShowCircularProgress] = useState(false);
 
   // Quando o envio do formulário for bem-sucedido
-  const onSubmit = async (data: any) => {
-    setIsSubmitting(true); // Ativa o estado de submissão
+  // const onSubmit = async (data: any) => {
+  //   setIsSubmitting(true); // Ativa o estado de submissão
 
-    try {
-      const response = await fetch("http://localhost:5000/students", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  //   try {
+  //     const response = await fetch("http://localhost:5000/students", {
+  //       method: "POST",
+  //       body: JSON.stringify(data),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
 
-      if (!response.ok) {
-        throw new Error("Erro na requisicao");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("Erro na requisicao");
+  //     }
 
-      setIsSubmitting(false);
-      setShowCircularProgress(true);
-    } catch (error) {
-      console.error("Erro ao enviar dados: ", error);
-      setIsSubmitting(false);
-    }
+  //     setIsSubmitting(false);
+  //     setShowCircularProgress(true);
+  //   } catch (error) {
+  //     console.error("Erro ao enviar dados: ", error);
+  //     setIsSubmitting(false);
+  //   }
 
-    if (isSubmitting) {
-      return (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          minHeight="100vh"
-        >
-          <CircularProgress /> {/* CircularProgress durante a submissão */}
-        </Box>
-      );
-    }
-  };
+  //   if (isSubmitting) {
+  //     return (
+  //       <Box
+  //         display="flex"
+  //         justifyContent="center"
+  //         alignItems="center"
+  //         minHeight="100vh"
+  //       >
+  //         <CircularProgress /> {/* CircularProgress durante a submissão */}
+  //       </Box>
+  //     );
+  //   }
+  // };
 
   // console.log("Valores do formulário:", methods.getValues());
 
