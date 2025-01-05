@@ -1,4 +1,4 @@
-import React, { forwardRef, ComponentProps } from "react";
+import { forwardRef, ComponentProps } from "react";
 
 interface InputControlProps extends ComponentProps<"input"> {}
 

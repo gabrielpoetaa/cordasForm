@@ -19,9 +19,7 @@ type BasicSelectProps = {
 };
 
 export const BasicSelect = ({ name, label, list }: BasicSelectProps) => {
-  const { control, watch } = useFormContext();
-
-  const watchedValue = watch(name);
+  const { control } = useFormContext();
 
   // console.log("Valor selecionado: ", watchedValue);
   // console.log("Tipo do valor selecionado: ", typeof watchedValue);

@@ -1,47 +1,49 @@
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
-import { useFormControl } from '@mui/material/FormControl';
-
-
+import React from "react";
+import { useFormContext } from "react-hook-form";
 
 const EnderecoForm: React.FC = () => {
-  const { register, formState: { errors }, setValue, setError } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+    setValue,
+    setError,
+  } = useFormContext();
 
   const handleCepBlur = async (event: React.FocusEvent<HTMLInputElement>) => {
-    const cep = event.target.value.replace(/\D/g, '');
+    const cep = event.target.value.replace(/\D/g, "");
     if (cep.length === 8) {
       try {
         const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const data = await response.json();
         if (!data.erro) {
-          setValue('Endereco.rua', data.logradouro);
-          setValue('Endereco.bairro', data.bairro);
-          setValue('Endereco.cidade', data.localidade);
-          setValue('Endereco.estado', data.uf);
+          setValue("Endereco.rua", data.logradouro);
+          setValue("Endereco.bairro", data.bairro);
+          setValue("Endereco.cidade", data.localidade);
+          setValue("Endereco.estado", data.uf);
         } else {
-          setError('Endereco.cep', {
-            type: 'manual',
-            message: 'CEP não encontrado',
+          setError("Endereco.cep", {
+            type: "manual",
+            message: "CEP não encontrado",
           });
         }
       } catch (error) {
-        setError('Endereco.cep', {
-          type: 'manual',
-          message: 'Erro ao buscar o CEP',
+        setError("Endereco.cep", {
+          type: "manual",
+          message: "Erro ao buscar o CEP",
         });
       }
     } else {
-      setError('Endereco.cep', {
-        type: 'manual',
-        message: 'Formato de CEP inválido',
+      setError("Endereco.cep", {
+        type: "manual",
+        message: "Formato de CEP inválido",
       });
     }
   };
 
   const getErrorMessage = (error: any): string | null => {
     if (!error) return null;
-    if (typeof error.message === 'string') return error.message;
-    return 'Erro inválido';
+    if (typeof error.message === "string") return error.message;
+    return "Erro inválido";
   };
 
   return (
@@ -51,10 +53,13 @@ const EnderecoForm: React.FC = () => {
         <input
           type="text"
           className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-          {...register('Endereco.cep', { required: 'CEP é obrigatório', minLength: { value: 8, message: 'O CEP deve ter oito dígitos' } })}
+          {...register("Endereco.cep", {
+            required: "CEP é obrigatório",
+            minLength: { value: 8, message: "O CEP deve ter oito dígitos" },
+          })}
           onBlur={handleCepBlur}
         />
-        {errors?.Endereco && 'cep' in errors.Endereco && (
+        {errors?.Endereco && "cep" in errors.Endereco && (
           <span>{getErrorMessage(errors.Endereco.cep)}</span>
         )}
       </div>
@@ -65,9 +70,9 @@ const EnderecoForm: React.FC = () => {
           <input
             type="text"
             className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-            {...register('Endereco.numero')}
+            {...register("Endereco.numero")}
           />
-          {errors?.Endereco && 'numero' in errors.Endereco && (
+          {errors?.Endereco && "numero" in errors.Endereco && (
             <span>{getErrorMessage(errors.Endereco.numero)}</span>
           )}
         </div>
@@ -77,9 +82,9 @@ const EnderecoForm: React.FC = () => {
           <input
             type="text"
             className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-            {...register('Endereco.complemento')}
+            {...register("Endereco.complemento")}
           />
-          {errors?.Endereco && 'complemento' in errors.Endereco && (
+          {errors?.Endereco && "complemento" in errors.Endereco && (
             <span>{getErrorMessage(errors.Endereco.complemento)}</span>
           )}
         </div>
@@ -90,9 +95,9 @@ const EnderecoForm: React.FC = () => {
         <input
           type="text"
           className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-          {...register('Endereco.rua')}
+          {...register("Endereco.rua")}
         />
-        {errors?.Endereco && 'rua' in errors.Endereco && (
+        {errors?.Endereco && "rua" in errors.Endereco && (
           <span>{getErrorMessage(errors.Endereco.rua)}</span>
         )}
       </div>
@@ -102,9 +107,9 @@ const EnderecoForm: React.FC = () => {
         <input
           type="text"
           className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-          {...register('Endereco.bairro')}
+          {...register("Endereco.bairro")}
         />
-        {errors?.Endereco && 'bairro' in errors.Endereco && (
+        {errors?.Endereco && "bairro" in errors.Endereco && (
           <span>{getErrorMessage(errors.Endereco.bairro)}</span>
         )}
       </div>
@@ -114,9 +119,9 @@ const EnderecoForm: React.FC = () => {
         <input
           type="text"
           className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-          {...register('Endereco.cidade')}
+          {...register("Endereco.cidade")}
         />
-        {errors?.Endereco && 'cidade' in errors.Endereco && (
+        {errors?.Endereco && "cidade" in errors.Endereco && (
           <span>{getErrorMessage(errors.Endereco.cidade)}</span>
         )}
       </div>
@@ -126,9 +131,9 @@ const EnderecoForm: React.FC = () => {
         <input
           type="text"
           className="border border-zinc-200 shadow-sm rounded h-10 px-3"
-          {...register('Endereco.estado')}
+          {...register("Endereco.estado")}
         />
-        {errors?.Endereco && 'estado' in errors.Endereco && (
+        {errors?.Endereco && "estado" in errors.Endereco && (
           <span>{getErrorMessage(errors.Endereco.estado)}</span>
         )}
       </div>

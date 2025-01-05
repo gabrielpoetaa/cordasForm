@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import { BasicSelectBool } from "../../BasicSelectBool";
 import MultipleSelect from "../../MultipleSelect";
 import listsModule from "../../../listsModule";
-import { useForm, FormProvider } from "react-hook-form";
 
 export const MusicPreferences = () => {
   return (
