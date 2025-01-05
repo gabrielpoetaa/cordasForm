@@ -8,10 +8,10 @@ import { MusicPreferences } from "../components/Form/StepsComponents/MusicPrefer
 // import { Address } from "../components/Form/StepsComponents/Address/Address";
 import { ChosenCourse } from "../components/Form/StepsComponents/ChosenCourse/ChosenCourse";
 import { HowDidYouFindUs } from "../components/Form/StepsComponents/HowDidYouFindUs/HowDidYouFindUs";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 import { SubmitMessage } from "../components/Form/SubmitMessage";
 import { useState } from "react";
-import { CircularProgress } from "@mui/material";
+// import { CircularProgress } from "@mui/material";
 import { ResetFormButton } from "../components/Form/ResetFormButton";
 
 // const date = dayjs();
@@ -123,7 +123,7 @@ export function Cadastrar() {
     },
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
   // const [showCircularProgress, setShowCircularProgress] = useState(false);
 
   // Quando o envio do formulário for bem-sucedido
