@@ -13,6 +13,11 @@ export const PersonalData = () => {
       gap={2}
       marginTop={10}
       width={500}
+      sx={{
+        "@media (max-width: 600px)" : {
+          width: "300px"
+        }
+      }}
     >
       {/* <NameInput /> */}
       <FormInput name="student_name" label="Nome" />

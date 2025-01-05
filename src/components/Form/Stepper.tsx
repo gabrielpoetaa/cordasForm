@@ -5,6 +5,8 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import StepButton from "@mui/material/StepButton";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 type Step = {
   label: string;
@@ -28,36 +30,38 @@ export function Steps({ items }: StepProps) {
 
   const isLastStep = activeStep === items.length - 1;
 
+  // Verifica se está em uma tela de tamanho mobile
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 'sm' é o breakpoint para telas pequenas (mobile)
+
   return (
     <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={activeStep} nonLinear>
+      <Stepper activeStep={activeStep} alternativeLabel>
         {items.map(({ label, hasError }, index) => {
           return (
             <Step
               sx={{
                 "& .MuiStepLabel-root .Mui-completed": {
-                  // color: "#f9f6ed",
-                  // circle color (COMPLETED)
+                  color: "#ba8638", // Cor do círculo (COMPLETO)
                 },
-                "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel":
-                  {
-                    color: "#a06a2e", // Just text label (COMPLETED)
-                  },
+                "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel": {
+                  color: "#a06a2e", // Cor do texto do label (COMPLETO)
+                },
                 "& .MuiStepLabel-root .Mui-active": {
-                  color: "#ba8638", // circle color (ACTIVE)
+                  color: "#ba8638", // Cor do círculo (ATIVO)
                 },
-                "& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel":
-                  {
-                    color: "common.white", // Just text label (ACTIVE)
-                  },
+                "& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel": {
+                  color: "#ba8638", // Cor do texto do label (ATIVO)
+                },
                 "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
-                  fill: "#f9f6ed", // circle's number (ACTIVE)
+                  fill: "#f9f6ed", // Cor do número no círculo (ATIVO)
                 },
               }}
               key={label}
             >
               <StepButton onClick={() => setActiveStep(index)}>
-                <StepLabel error={hasError}>{label}</StepLabel>
+                {/* Condicional para não mostrar o StepLabel em dispositivos móveis */}
+                {!isMobile && <StepLabel error={hasError}>{label}</StepLabel>}
               </StepButton>
             </Step>
           );
@@ -94,7 +98,6 @@ export function Steps({ items }: StepProps) {
             },
             "&.Mui-disabled": {
               color: "#ba8638",
-
               opacity: 1, // Remove a opacidade padrão aplicada aos botões desabilitados
               pointerEvents: "none", // Impede a interação com o botão
             },
