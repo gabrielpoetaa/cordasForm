@@ -12,6 +12,11 @@ export const HowDidYouFindUs = () => {
       gap={2}
       marginTop={10}
       width={500}
+      sx={{
+        "@media (max-width: 600px)" : {
+          width: "300px"
+        }
+      }}
     >
       <MultipleSelect
         name="How_did_you_find_us"

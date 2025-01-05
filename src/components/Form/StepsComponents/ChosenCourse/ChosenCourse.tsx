@@ -33,6 +33,11 @@ export const ChosenCourse: React.FC = () => {
       gap={8}
       marginTop={10}
       width={500}
+      sx={{
+        "@media (max-width: 600px)" : {
+          width: "300px"
+        }
+      }}
     >
       {chosenCourses.map((courseObject, index) => (
         <div key={index}>
