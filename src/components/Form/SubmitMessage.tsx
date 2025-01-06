@@ -13,7 +13,7 @@ export const SubmitMessage = () => {
           }}
         >
           <h1 className="text-center text-3xl md:text-4xl text-goldCordas_400 font-semibold ">
-            Formulário enviado com sucesso!
+          Successfully
           </h1>
         </motion.div>
         <div className="text-center">{/* <CircularProgress /> */}</div>
