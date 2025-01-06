@@ -44,8 +44,8 @@ export const ChosenCourse: React.FC = () => {
           <div className="space-y-4">
             <BasicSelect
               name={`courses[${index}].Course_name`} // Mudando para associar 'course' corretamente no objeto
-              label="Curso escolhido"
-              list={listsModule.courses}
+              label="Chosen course"
+              list={listsModule.courses_EN}
               value={courseObject.Course_name} // Passando o valor correto
               onChange={(event) => {
                 setChosenCourses((prevCourses) =>
@@ -59,7 +59,7 @@ export const ChosenCourse: React.FC = () => {
             />
             <BasicSelect
               name={`courses[${index}].Teacher_name`} // Mudando para associar 'teacher' corretamente no objeto
-              label="Professor"
+              label="Teacher"
               list={listsModule.teacher}
               value={courseObject.Teacher_name} // Passando o valor correto
               onChange={(event) => {
@@ -78,10 +78,10 @@ export const ChosenCourse: React.FC = () => {
               className="btnForm"
               onClick={() => handleRemoveCourse(index)}
             >
-              Remover
+              Remove
             </button>
             <button className="btnForm w-fit" onClick={handleAddCourse}>
-              Adicionar Curso
+              Add more
             </button>
           </div>
         </div>

@@ -20,8 +20,8 @@ export const HowDidYouFindUs = () => {
     >
       <MultipleSelect
         name="How_did_you_find_us"
-        label="Como você nos conheceu?"
-        list={listsModule.howDidYouFindUs}
+        label="How did you find us?"
+        list={listsModule.howDidYouFindUs_EN}
       />
     </Box>
   );

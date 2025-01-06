@@ -61,8 +61,8 @@ export const BasicSelectBool = ({ name, label }: BasicSelectBoolProps) => {
               onChange={(e) => field.onChange(e.target.value === "true")}
               value={field.value === true ? "true" : "false"}
             >
-              <MenuItem value="true">Sim</MenuItem>
-              <MenuItem value="false">Não</MenuItem>
+              <MenuItem value="true">Yes</MenuItem>
+              <MenuItem value="false">No</MenuItem>
             </Select>
             {fieldState.error && (
               <FormHelperText>{fieldState.error.message}</FormHelperText>

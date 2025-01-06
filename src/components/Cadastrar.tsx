@@ -60,7 +60,7 @@ const schema = z
 
 const sourceSteps = [
   {
-    label: "Dados Pessoais",
+    label: "Personal Info",
     Component: <PersonalData />,
     fields: ["student_name", "Date_of_birth", "CPF", "Email", "mobileNumber"],
     hasError: false,
@@ -72,19 +72,19 @@ const sourceSteps = [
   //   hasError: false,
   // },
   {
-    label: "Preferências Musicais",
+    label: "Music Preferences",
     fields: ["Previous_knowledge", "Music_Preferences", "Participate_projects"],
     Component: <MusicPreferences />,
     hasError: false,
   },
   {
-    label: "Curso escolhido",
+    label: "Chosen class",
     fields: ["Course_name", "Course_name"],
     Component: <ChosenCourse />,
     hasError: false,
   },
   {
-    label: "Como você nos conheceu?",
+    label: "How did you find us?",
     fields: ["How_did_you_find_us"],
     Component: <HowDidYouFindUs />,
     hasError: false,

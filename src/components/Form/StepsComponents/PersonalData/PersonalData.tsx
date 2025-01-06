@@ -20,12 +20,12 @@ export const PersonalData = () => {
       }}
     >
       {/* <NameInput /> */}
-      <FormInput name="student_name" label="Nome" />
-      <BasicDatePicker name="Date_of_birth" label="Data de Nascimento" />
-      <FormInput name="CPF" label="CPF do responsável" />
+      <FormInput name="student_name" label="Name" />
+      <BasicDatePicker name="Date_of_birth" label="Date of birth" />
+      {/* <FormInput name="CPF" label="CPF do responsável" /> */}
       <FormInput name="Email" label="Email" />
       {/* <FormInput name="telNumber" label="Telefone" /> */}
-      <FormInput name="mobileNumber" label="(DDD) + Celular / Whatsapp" />
+      <FormInput name="mobileNumber" label="Mobile" />
     </Box>
   );
 };

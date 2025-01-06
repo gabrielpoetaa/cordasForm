@@ -24,6 +24,32 @@ const listsModule = (function () {
     "Preparação para a prova específica da UFRGS",
   ];
 
+  const courses_EN = [
+    "Accordion",
+    "Acoustic and Electric Bass",
+    "Drums",
+    "Popular Singing",
+    "Cavaquinho",
+    "Recorder and Transverse Flute",
+    "Guitar",
+    "Harmonica",
+    "Percussion",
+    "Piano",
+    "Saxophone",
+    "Theater",
+    "Keyboard",
+    "Vocal Technique",
+    "Trumpet",
+    "Ukulele",
+    "Viola",
+    "Classical Guitar",
+    "Violin",
+    "Applied Harmony to Brazilian Popular Music (MPB)",
+    "Music Theory",
+    "Preparation for the UFRGS Specific Test",
+  ];
+  
+
   const musicStyles = [
     "Blues",
     "Bossa Nova",
@@ -58,11 +84,23 @@ const listsModule = (function () {
     "Familia/Amigos",
   ];
 
+  const howDidYouFindUs_EN = [
+    "Instagram",
+    "Facebook",
+    "Our site",
+    "School events",
+    "Radio",
+    "TV",
+    "Family/Friends",
+  ];
+
   return {
     courses: courses,
+    courses_EN: courses_EN,
     musicStyles: musicStyles,
     teacher: teacher,
     howDidYouFindUs: howDidYouFindUs,
+    howDidYouFindUs_EN: howDidYouFindUs_EN,
   };
 })();
 
