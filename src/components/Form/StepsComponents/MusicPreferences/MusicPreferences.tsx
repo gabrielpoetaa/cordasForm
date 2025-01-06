@@ -21,16 +21,16 @@ export const MusicPreferences = () => {
     >
       <BasicSelectBool
         name="Previous_knowledge"
-        label="Conhecimentos musicais prévios?"
+        label="Previous musical knowledge?"
       />
       <MultipleSelect
         name="Music_Preferences"
-        label="Quais estilos de música você mais gosta?"
+        label="What music genres do you like the most?"
         list={listsModule.musicStyles}
       />
       <BasicSelectBool
         name="Participate_projects"
-        label="Gostaria de participar dos projetos da escola?"
+        label="Would you like to participate in the school's projects?"
       />
     </Box>
   );
