@@ -14,7 +14,7 @@ export const ResetFormButton: React.FC<ResetFormButtonProps> = ({
         transition={{ duration: 0.9, type: "spring", stiffness: 100 }}
       >
         <button className="btnFormOutline" type="button" onClick={onClick}>
-          Retornar ao início
+          Start again
         </button>
       </motion.button>
     </div>
