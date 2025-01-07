@@ -97,14 +97,14 @@ export function Steps({ items }: StepProps) {
             border: "1px solid #d6b56e",
             "&:hover": {
               color: "#f9f6ed",
+              backgroundColor: "#d6b56e",
             },
             "&.Mui-disabled": {
               color: "#ba8638",
-              opacity: 1, // Remove a opacidade padrão aplicada aos botões desabilitados
-              pointerEvents: "none", // Impede a interação com o botão
+              opacity: 0,
+              pointerEvents: "none",
             },
           }}
-          className="btnForm"
         >
           Voltar
         </Button>
@@ -124,9 +124,9 @@ export function Steps({ items }: StepProps) {
               border: "1px solid #d6b56e",
               "&:hover": {
                 color: "#f9f6ed",
+                backgroundColor: "#d6b56e",
               },
             }}
-            className="btnForm"
           >
             Enviar
           </Button>
@@ -145,9 +145,9 @@ export function Steps({ items }: StepProps) {
               border: "1px solid #d6b56e",
               "&:hover": {
                 color: "#f9f6ed",
+                backgroundColor: "#d6b56e",
               },
             }}
-            className="btnForm"
           >
             Próximo
           </Button>
