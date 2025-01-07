@@ -12,7 +12,8 @@ import { HowDidYouFindUs } from "../components/Form/StepsComponents/HowDidYouFin
 import { SubmitMessage } from "../components/Form/SubmitMessage";
 // import { useState } from "react";
 // import { CircularProgress } from "@mui/material";
-import { ResetFormButton } from "../components/Form/ResetFormButton";
+import { Button } from "./Buttons/Button";
+import { motion } from "framer-motion";
 
 // const date = dayjs();
 // console.log(date instanceof dayjs); // true
@@ -171,7 +172,16 @@ export function Cadastrar() {
     return (
       <Box>
         <SubmitMessage />
-        <ResetFormButton onClick={() => methods.reset()} />
+        <div className="w-fit mx-auto">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.9, type: "spring", stiffness: 100 }}
+          >
+            <Button hasBg={true} onClick={() => methods.reset()}>
+              Retornar ao início
+            </Button>
+          </motion.div>
+        </div>
       </Box>
     );
   }
