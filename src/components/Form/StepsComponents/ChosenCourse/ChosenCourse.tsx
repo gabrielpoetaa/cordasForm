@@ -47,8 +47,8 @@ export const ChosenCourse: React.FC = () => {
           <div className="space-y-4">
             <BasicSelect
               name={`courses[${index}].Course_name`} // Mudando para associar 'course' corretamente no objeto
-              label="Curso escolhido"
-              list={listsModule.courses}
+              label="Chosen course"
+              list={listsModule.courses_EN}
               value={courseObject.Course_name} // Passando o valor correto
               onChange={(event) => {
                 setChosenCourses((prevCourses) =>
@@ -62,7 +62,7 @@ export const ChosenCourse: React.FC = () => {
             />
             <BasicSelect
               name={`courses[${index}].Teacher_name`} // Mudando para associar 'teacher' corretamente no objeto
-              label="Professor"
+              label="Teacher"
               list={listsModule.teacher}
               value={courseObject.Teacher_name} // Passando o valor correto
               onChange={(event) => {
@@ -78,10 +78,10 @@ export const ChosenCourse: React.FC = () => {
           </div>
           <div className="flex justify-between mt-8">
             <Button hasBg={true} onClick={() => handleRemoveCourse(index)}>
-              Remover
+              Remove
             </Button>
             <Button hasBg={true} onClick={handleAddCourse}>
-              Adicionar Curso
+              Add more
             </Button>
           </div>
         </div>

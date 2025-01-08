@@ -36,7 +36,7 @@ export function Steps({ items }: StepProps) {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' é o breakpoint para telas pequenas (mobile)
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", marginBottom: "12px" }}>
       <Stepper activeStep={activeStep} alternativeLabel>
         {items.map(({ label, hasError }, index) => {
           return (
@@ -86,7 +86,7 @@ export function Steps({ items }: StepProps) {
         }}
       >
         <Button hasBg={false} disabled={activeStep === 0} onClick={handleBack}>
-          Voltar
+          Back
         </Button>
 
         <Box sx={{ flex: "1 1 auto" }} />
@@ -101,7 +101,7 @@ export function Steps({ items }: StepProps) {
             type="button"
             onClick={handleNext}
           >
-            Próximo
+            Next
           </Button>
         )}
       </Box>
