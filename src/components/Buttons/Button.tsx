@@ -21,7 +21,7 @@ export const Button = ({
     ${
       hasBg
         ? "bg-[#d6b56e] hover:bg-opacity-80"
-        : "border bg-transparent border-solid border border-[#d6b56e] text-[#c99b46] hover:bg-[#d6b56e] hover:text-white"
+        : "border bg-transparent border-solid border border-[#d6b56e] text-[#ba8638] hover:bg-[#d6b56e] hover:text-white"
     }
     ${
       disabled

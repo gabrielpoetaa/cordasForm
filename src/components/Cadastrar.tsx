@@ -178,7 +178,7 @@ export function Cadastrar() {
             transition={{ duration: 0.9, type: "spring", stiffness: 100 }}
           >
             <Button hasBg={false} onClick={() => methods.reset()}>
-              Retornar ao início
+              Start over
             </Button>
           </motion.div>
         </div>
