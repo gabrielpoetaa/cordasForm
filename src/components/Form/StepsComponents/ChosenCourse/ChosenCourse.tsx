@@ -2,6 +2,9 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import listsModule from "../../../listsModule";
 import { BasicSelect } from "../../BasicSelectNames";
+import { Button } from "../../../Buttons/Button";
+
+import "../../../../styles/global.css";
 
 interface Courses {
   Course_name: string;
@@ -34,9 +37,9 @@ export const ChosenCourse: React.FC = () => {
       marginTop={10}
       width={500}
       sx={{
-        "@media (max-width: 600px)" : {
-          width: "300px"
-        }
+        "@media (max-width: 600px)": {
+          width: "300px",
+        },
       }}
     >
       {chosenCourses.map((courseObject, index) => (
@@ -74,15 +77,12 @@ export const ChosenCourse: React.FC = () => {
             />
           </div>
           <div className="flex justify-between mt-8">
-            <button
-              className="btnForm"
-              onClick={() => handleRemoveCourse(index)}
-            >
+            <Button hasBg={true} onClick={() => handleRemoveCourse(index)}>
               Remove
-            </button>
-            <button className="btnForm w-fit" onClick={handleAddCourse}>
+            </Button>
+            <Button hasBg={true} onClick={handleAddCourse}>
               Add more
-            </button>
+            </Button>
           </div>
         </div>
       ))}

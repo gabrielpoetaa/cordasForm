@@ -3,10 +3,11 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import StepButton from "@mui/material/StepButton";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Button } from "../../components/Buttons/Button";
 
 type Step = {
   label: string;
@@ -84,70 +85,21 @@ export function Steps({ items }: StepProps) {
           },
         }}
       >
-        <Button
-          color="inherit"
-          disabled={activeStep === 0}
-          onClick={handleBack}
-          sx={{
-            textTransform: "none",
-            borderRadius: "8px",
-            fontWeight: "500",
-            fontSize: "14px",
-            color: "#ba8638",
-            border: "1px solid #d6b56e",
-            "&:hover": {
-              color: "#f9f6ed",
-            },
-            "&.Mui-disabled": {
-              color: "#ba8638",
-              opacity: 1, // Remove a opacidade padrão aplicada aos botões desabilitados
-              pointerEvents: "none", // Impede a interação com o botão
-            },
-          }}
-          className="btnForm"
-        >
+        <Button hasBg={false} disabled={activeStep === 0} onClick={handleBack}>
           Back
         </Button>
 
         <Box sx={{ flex: "1 1 auto" }} />
         {isLastStep ? (
-          <Button
-            key="enviar"
-            type="submit"
-            color="inherit"
-            sx={{
-              textTransform: "none",
-              borderRadius: "8px",
-              fontWeight: "500",
-              fontSize: "14px",
-              color: "#ba8638",
-              border: "1px solid #d6b56e",
-              "&:hover": {
-                color: "#f9f6ed",
-              },
-            }}
-            className="btnForm"
-          >
-            Send
+          <Button hasBg={false} key="enviar" type="submit">
+            Enviar
           </Button>
         ) : (
           <Button
+            hasBg={false}
             key="proximo"
             type="button"
             onClick={handleNext}
-            color="inherit"
-            sx={{
-              textTransform: "none",
-              borderRadius: "8px",
-              fontWeight: "500",
-              fontSize: "14px",
-              color: "#ba8638",
-              border: "1px solid #d6b56e",
-              "&:hover": {
-                color: "#f9f6ed",
-              },
-            }}
-            className="btnForm"
           >
             Next
           </Button>
