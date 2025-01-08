@@ -92,7 +92,7 @@ export function Steps({ items }: StepProps) {
         <Box sx={{ flex: "1 1 auto" }} />
         {isLastStep ? (
           <Button hasBg={false} key="enviar" type="submit">
-            Enviar
+            Send
           </Button>
         ) : (
           <Button
