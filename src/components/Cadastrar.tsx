@@ -49,7 +49,7 @@ const schema = z
     //   .array(z.string())
     //   .min(1, "Por favor, selecione pelo menos uma preferência musical"),
     // courses: z
-    //   .array(courseSchema) // Validando o array de objetos `course` e `teacher`
+    //   .array(courseSchema)
     //   .min(1, "Por favor, escolha pelo menos um curso."),
     // How_did_you_find_us: z
     //   .array(z.string())
@@ -177,7 +177,7 @@ export function Cadastrar() {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.9, type: "spring", stiffness: 100 }}
           >
-            <Button hasBg={true} onClick={() => methods.reset()}>
+            <Button hasBg={false} onClick={() => methods.reset()}>
               Retornar ao início
             </Button>
           </motion.div>
