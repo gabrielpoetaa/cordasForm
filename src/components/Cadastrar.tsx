@@ -165,7 +165,7 @@ export function Cadastrar() {
   //   }
   // };
 
-  // console.log("Valores do formulário:", methods.getValues());
+  console.log("Valores do formulário:", methods.getValues());
 
   // Renderiza a mensagem de sucesso após 2 segundos
   if (methods.formState.isSubmitSuccessful) {
@@ -192,7 +192,12 @@ export function Cadastrar() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit((data) => console.log(data))}>
+      <form
+        onSubmit={methods.handleSubmit((data) => {
+          console.log(data);
+          sessionStorage.removeItem("savedCourses");
+        })}
+      >
         <Steps items={steps} />
       </form>
     </FormProvider>
