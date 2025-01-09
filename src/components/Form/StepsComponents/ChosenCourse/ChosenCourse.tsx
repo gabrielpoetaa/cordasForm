@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import listsModule from "../../../listsModule";
 import { BasicSelect } from "../../BasicSelectNames";
 import { Button } from "../../../Buttons/Button";
@@ -12,13 +12,18 @@ interface Courses {
 }
 
 export const ChosenCourse: React.FC = () => {
-  // Inicializando com um curso vazio
-  const [chosenCourses, setChosenCourses] = useState<Courses[]>([
-    { Course_name: "", Teacher_name: "" },
-  ]);
+  const [chosenCourses, setChosenCourses] = useState<Courses[]>(() => {
+    const savedCourses = sessionStorage.getItem("savedCourses");
+    return savedCourses
+      ? JSON.parse(savedCourses)
+      : [{ Course_name: "", Teacher_name: "" }];
+  });
 
   const handleAddCourse = () => {
-    setChosenCourses([...chosenCourses, { Course_name: "", Teacher_name: "" }]);
+    setChosenCourses((prevCourses) => [
+      ...prevCourses,
+      { Course_name: "", Teacher_name: "" },
+    ]);
   };
 
   const handleRemoveCourse = (index: number) => {
@@ -26,6 +31,37 @@ export const ChosenCourse: React.FC = () => {
       prevCourses.filter((_, courseIndex) => courseIndex !== index)
     );
   };
+
+  const handleCourseChange = (
+    index: number,
+    field: keyof Courses,
+    value: string
+  ) => {
+    setChosenCourses((prevCourses) =>
+      prevCourses.map((course, courseIndex) =>
+        courseIndex === index ? { ...course, [field]: value } : course
+      )
+    );
+  };
+
+  useEffect(() => {
+    if (chosenCourses.length > 0) {
+      sessionStorage.setItem("savedCourses", JSON.stringify(chosenCourses));
+    }
+  }, [chosenCourses]);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      sessionStorage.removeItem("savedCourses");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Limpeza do event listener ao desmontar o componente
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
 
   return (
     <Box
@@ -51,13 +87,7 @@ export const ChosenCourse: React.FC = () => {
               list={listsModule.courses_EN}
               value={courseObject.Course_name} // Passando o valor correto
               onChange={(event) => {
-                setChosenCourses((prevCourses) =>
-                  prevCourses.map((course, courseIndex) =>
-                    courseIndex === index
-                      ? { ...course, course: event.target.value } // Atualiza o curso
-                      : course
-                  )
-                );
+                handleCourseChange(index, "Course_name", event.target.value); // Atualiza o curso
               }}
             />
             <BasicSelect
@@ -66,13 +96,7 @@ export const ChosenCourse: React.FC = () => {
               list={listsModule.teacher}
               value={courseObject.Teacher_name} // Passando o valor correto
               onChange={(event) => {
-                setChosenCourses((prevCourses) =>
-                  prevCourses.map((course, courseIndex) =>
-                    courseIndex === index
-                      ? { ...course, teacher: event.target.value } // Atualiza o teacher
-                      : course
-                  )
-                );
+                handleCourseChange(index, "Teacher_name", event.target.value); // Atualiza o teacher
               }}
             />
           </div>
