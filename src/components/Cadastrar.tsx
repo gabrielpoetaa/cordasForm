@@ -18,10 +18,10 @@ import { motion } from "framer-motion";
 // const date = dayjs();
 // console.log(date instanceof dayjs); // true
 
-const courseSchema = z.object({
-  Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
-  Teacher_name: z.string().min(1, "Por favor, selecione um teacher"), // Validação para o teacher
-});
+// const courseSchema = z.object({
+//   Course_name: z.string().min(1, "Por favor, selecione um curso"), // Validação para o curso
+//   Teacher_name: z.string().min(1, "Por favor, selecione um teacher"), // Validação para o teacher
+// });
 
 const schema = z
   .object({
