@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import listsModule from "../../../listsModule";
-import { BasicSelect } from "../../BasicSelectNames";
+import { BasicSelect } from "../../../MUI_components/BasicSelectNames";
 import { Button } from "../../../Buttons/Button";
 
 import "../../../../styles/global.css";
+import { useTranslation } from "react-i18next";
 
 interface Courses {
   Course_name: string;
@@ -12,6 +13,13 @@ interface Courses {
 }
 
 export const ChosenCourse: React.FC = () => {
+  const { t, i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
+
+  const coursesList =
+    currentLanguage === "pt" ? listsModule.courses : listsModule.courses_EN;
+
   const [chosenCourses, setChosenCourses] = useState<Courses[]>(() => {
     const savedCourses = sessionStorage.getItem("savedCourses");
     return savedCourses
@@ -83,8 +91,8 @@ export const ChosenCourse: React.FC = () => {
           <div className="space-y-4">
             <BasicSelect
               name={`courses[${index}].Course_name`} // Mudando para associar 'course' corretamente no objeto
-              label="Chosen course"
-              list={listsModule.courses_EN}
+              label={t("chosen_course")}
+              list={coursesList}
               value={courseObject.Course_name} // Passando o valor correto
               onChange={(event) => {
                 handleCourseChange(index, "Course_name", event.target.value); // Atualiza o curso
@@ -92,7 +100,7 @@ export const ChosenCourse: React.FC = () => {
             />
             <BasicSelect
               name={`courses[${index}].Teacher_name`} // Mudando para associar 'teacher' corretamente no objeto
-              label="Teacher"
+              label={t("teacher_label")}
               list={listsModule.teacher}
               value={courseObject.Teacher_name} // Passando o valor correto
               onChange={(event) => {

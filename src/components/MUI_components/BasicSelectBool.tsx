@@ -8,6 +8,8 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+
 // import { SelectChangeEvent } from '@mui/material/Select';
 
 type BasicSelectBoolProps = {
@@ -17,6 +19,12 @@ type BasicSelectBoolProps = {
 
 export const BasicSelectBool = ({ name, label }: BasicSelectBoolProps) => {
   const { control } = useFormContext();
+
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
+  const value_true = currentLanguage === "pt" ? "Sim" : "Yes";
+  const value_false = currentLanguage === "pt" ? "Não" : "No";
 
   // console.log("Valor selecionado: ", watchedValue);
   // console.log("Tipo do valor selecionado: ", typeof watchedValue);
@@ -61,8 +69,8 @@ export const BasicSelectBool = ({ name, label }: BasicSelectBoolProps) => {
               onChange={(e) => field.onChange(e.target.value === "true")}
               value={field.value === true ? "true" : "false"}
             >
-              <MenuItem value="true">Yes</MenuItem>
-              <MenuItem value="false">No</MenuItem>
+              <MenuItem value="true">{value_true}</MenuItem>
+              <MenuItem value="false">{value_false}</MenuItem>
             </Select>
             {fieldState.error && (
               <FormHelperText>{fieldState.error.message}</FormHelperText>
