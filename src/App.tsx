@@ -6,6 +6,7 @@ import { LanguageSwitcher } from "./components/LanguageSwitcher";
 function App() {
   return (
     <div className=" flex flex-col">
+      <LanguageSwitcher />
       <div className="md:w-72 w-60 mx-auto">
         <img src={logo} alt="" />
       </div>

@@ -17,5 +17,7 @@
   "back_button": "Back",
   "next_button": "Next",
   "send_button": "Send",
-  "reset_button": "Start over"
+  "reset_button": "Start over",
+
+  "submit_message": "Successfully sent!"
 }
