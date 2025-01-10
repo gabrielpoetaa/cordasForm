@@ -1,6 +1,7 @@
 import { Form } from "./components/Form";
 import "./styles/global.css";
 import logo from "./assets/logoCordas.png";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
 
 function App() {
   return (
