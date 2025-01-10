@@ -1,0 +1,21 @@
+{
+  "name": "Name",
+  "date_of_birth": "Date of birth",
+  "email": "Email",
+  "mobile": "Mobile",
+
+  "previous_knowledge": "Previous musical knowledge?",
+  "music_preferences": "What music genres do you like the most?",
+  "participate_projects": "Would you like to participate in the school's projects?",
+
+  "chosen_course": "Chosen course",
+  "teacher_label": "Teacher",
+  "how_did_you_find_us": "How did you find us?",
+
+  "personal_info": "Personal info",
+
+  "back_button": "Back",
+  "next_button": "Next",
+  "send_button": "Send",
+  "reset_button": "Start over"
+}

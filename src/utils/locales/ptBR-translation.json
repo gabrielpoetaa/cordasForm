@@ -1,0 +1,22 @@
+{
+  "name": "Nome",
+  "date_of_birth": "Data de nascimento",
+  "email": "Email",
+  "mobile": "Celular",
+
+  "previous_knowledge": "Conhecimento musical prévio?",
+  "music_preferences": "Quais estilos musicais você mais gosta?",
+  "participate_projects": "Gostaria de participar dos projetos da escola?",
+
+  "chosen_course": "Curso escolhido",
+  "teacher_label": "Professor",
+
+  "how_did_you_find_us": "Como você chegou até nós?",
+
+  "personal_info": "Informações pessoais",
+
+  "back_button": "Voltar",
+  "next_button": "Próximo",
+  "send_button": "Enviar",
+  "reset_button": "Retornar ao início"
+}
