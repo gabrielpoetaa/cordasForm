@@ -1,9 +1,11 @@
 import { Box } from "@mui/material";
 // import { NameInput } from "./Form/FirstPage/NameInput"
-import { FormInput } from "../../FormInput";
-import BasicDatePicker from "../../../BasicDatePicker";
+import { FormInput } from "../../../MUI_components/FormInput";
+import BasicDatePicker from "../../../MUI_components/BasicDatePicker";
+import { useTranslation } from "react-i18next";
 
 export const PersonalData = () => {
+  const { t } = useTranslation();
   return (
     <Box
       marginY={10}
@@ -14,18 +16,18 @@ export const PersonalData = () => {
       marginTop={10}
       width={500}
       sx={{
-        "@media (max-width: 600px)" : {
-          width: "300px"
-        }
+        "@media (max-width: 600px)": {
+          width: "300px",
+        },
       }}
     >
       {/* <NameInput /> */}
-      <FormInput name="student_name" label="Name" />
-      <BasicDatePicker name="Date_of_birth" label="Date of birth" />
+      <FormInput name="student_name" label={t("name")} />
+      <BasicDatePicker name="Date_of_birth" label={t("date_of_birth")} />
       {/* <FormInput name="CPF" label="CPF do responsável" /> */}
       <FormInput name="Email" label="Email" />
       {/* <FormInput name="telNumber" label="Telefone" /> */}
-      <FormInput name="mobileNumber" label="Mobile" />
+      <FormInput name="mobileNumber" label={t("mobile")} />
     </Box>
   );
 };
