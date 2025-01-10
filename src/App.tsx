@@ -1,4 +1,4 @@
-import { Cadastrar } from "./components/Cadastrar";
+import { Form } from "./components/Form";
 import "./styles/global.css";
 import logo from "./assets/logoCordas.png";
 
@@ -8,8 +8,8 @@ function App() {
       <div className="md:w-72 w-60 mx-auto">
         <img src={logo} alt="" />
       </div>
-      <div className="max-w-[1000px] lg:mx-auto md:x-12 mx-auto">
-        <Cadastrar />
+      <div className="max-w-[1000px] lg:mx-auto md:x-12 mx-auto space-y-32">
+        <Form />
       </div>
     </div>
   );
