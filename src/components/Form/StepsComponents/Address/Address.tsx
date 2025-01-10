@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { FormInput } from "../../FormInput";
+import { FormInput } from "../../../MUI_components/FormInput";
 
 export const Address = () => {
   return (

@@ -1,8 +1,11 @@
 import { Box } from "@mui/material";
-import MultipleSelect from "../../MultipleSelect";
+import MultipleSelect from "../../../MUI_components/MultipleSelect";
 import listsModule from "../../../listsModule";
+import { useTranslation } from "react-i18next";
 
 export const HowDidYouFindUs = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       marginY={10}
@@ -13,14 +16,14 @@ export const HowDidYouFindUs = () => {
       marginTop={10}
       width={500}
       sx={{
-        "@media (max-width: 600px)" : {
-          width: "300px"
-        }
+        "@media (max-width: 600px)": {
+          width: "300px",
+        },
       }}
     >
       <MultipleSelect
         name="How_did_you_find_us"
-        label="How did you find us?"
+        label={t("how_did_you_find_us")}
         list={listsModule.howDidYouFindUs_EN}
       />
     </Box>

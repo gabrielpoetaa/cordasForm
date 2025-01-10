@@ -7,7 +7,8 @@ import StepLabel from "@mui/material/StepLabel";
 import StepButton from "@mui/material/StepButton";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Button } from "../../components/Buttons/Button";
+import { Button } from "../Buttons/Button";
+import { useTranslation } from "react-i18next";
 
 type Step = {
   label: string;
@@ -20,6 +21,8 @@ type StepProps = {
 };
 
 export function Steps({ items }: StepProps) {
+  const { t } = useTranslation();
+
   const [activeStep, setActiveStep] = React.useState(0);
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -36,7 +39,7 @@ export function Steps({ items }: StepProps) {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' é o breakpoint para telas pequenas (mobile)
 
   return (
-    <Box sx={{ width: "100%", marginBottom: "12px" }}>
+    <Box sx={{ width: "100%", marginTop: "24px" }}>
       <Stepper activeStep={activeStep} alternativeLabel>
         {items.map(({ label, hasError }, index) => {
           return (
@@ -71,7 +74,7 @@ export function Steps({ items }: StepProps) {
         })}
       </Stepper>
 
-      <Box minHeight={"45vh"}>{items[activeStep].Component}</Box>
+      <Box minHeight={"40vh"}>{items[activeStep].Component}</Box>
 
       <Box
         sx={{
@@ -86,13 +89,13 @@ export function Steps({ items }: StepProps) {
         }}
       >
         <Button hasBg={false} disabled={activeStep === 0} onClick={handleBack}>
-          Back
+          {t("back_button")}
         </Button>
 
         <Box sx={{ flex: "1 1 auto" }} />
         {isLastStep ? (
           <Button hasBg={false} key="enviar" type="submit">
-            Send
+            {t("send_button")}
           </Button>
         ) : (
           <Button
@@ -101,7 +104,7 @@ export function Steps({ items }: StepProps) {
             type="button"
             onClick={handleNext}
           >
-            Next
+            {t("next_button")}
           </Button>
         )}
       </Box>

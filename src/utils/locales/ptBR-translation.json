@@ -18,5 +18,7 @@
   "back_button": "Voltar",
   "next_button": "Próximo",
   "send_button": "Enviar",
-  "reset_button": "Retornar ao início"
+  "reset_button": "Retornar ao início",
+
+  "submit_message": "Enviado com sucesso!"
 }

@@ -1,9 +1,12 @@
 import { Box } from "@mui/material";
-import { BasicSelectBool } from "../../BasicSelectBool";
-import MultipleSelect from "../../MultipleSelect";
+import { BasicSelectBool } from "../../../MUI_components/BasicSelectBool";
+import MultipleSelect from "../../../MUI_components/MultipleSelect";
 import listsModule from "../../../listsModule";
+import { useTranslation } from "react-i18next";
 
 export const MusicPreferences = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       marginY={10}
@@ -14,23 +17,23 @@ export const MusicPreferences = () => {
       marginTop={10}
       width={500}
       sx={{
-        "@media (max-width: 600px)" : {
-          width: "300px"
-        }
+        "@media (max-width: 600px)": {
+          width: "300px",
+        },
       }}
     >
       <BasicSelectBool
         name="Previous_knowledge"
-        label="Previous musical knowledge?"
+        label={t("previous_knowledge")}
       />
       <MultipleSelect
         name="Music_Preferences"
-        label="What music genres do you like the most?"
+        label={t("music_preferences")}
         list={listsModule.musicStyles}
       />
       <BasicSelectBool
         name="Participate_projects"
-        label="Would you like to participate in the school's projects?"
+        label={t("participate_projects")}
       />
     </Box>
   );

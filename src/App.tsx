@@ -1,4 +1,4 @@
-import { Cadastrar } from "./components/Form";
+import { Form } from "./components/Form";
 import "./styles/global.css";
 import logo from "./assets/logoCordas.png";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
@@ -11,7 +11,7 @@ function App() {
         <img src={logo} alt="" />
       </div>
       <div className="max-w-[1000px] lg:mx-auto md:x-12 mx-auto space-y-32">
-        <Cadastrar />
+        <Form />
       </div>
     </div>
   );
